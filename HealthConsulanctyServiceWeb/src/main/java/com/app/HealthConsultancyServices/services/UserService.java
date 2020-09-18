@@ -15,8 +15,8 @@ public class UserService {
 		return userRepository.findByEmailAndPasswordAndRole(email, password, role);
 	}
 	
-	public User findByPassword(String password) {
-		return userRepository.findByPassword(password);
+	public void ChangePassword(String email,String password,String newpassword) {
+		userRepository.ChangePassword(email,password,newpassword);
 	}
 
 	public void saveOrUpdate(User user)   

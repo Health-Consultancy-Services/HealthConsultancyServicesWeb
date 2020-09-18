@@ -32,8 +32,17 @@ public class UserRestController {
 	} 
 	
 	@GetMapping("/login/{email}/{password}/{role}")
-	public User findByEmailAndPasswordAndRole(@PathVariable("email") String email,@PathVariable("password") String password,@PathVariable("role") String role) {
-		return null;
+	public String findByEmailAndPasswordAndRole(@PathVariable("email") String email,@PathVariable("password") String password,@PathVariable("role") String role) {
+		if(userService.findByEmailAndPasswordAndRole(email, password, role)!=null)
+		return "User logged in successfully";
+		else
+		return "Invalid Credientialss!!!!";
+	}
+	
+	@GetMapping("/changepassword/{email}/{password}/{newpassword}")
+	public String ChangePassword(@PathVariable("email") String email,@PathVariable("password") String password,@PathVariable("newpassword") String newpassword) {
+		userService.ChangePassword(email, password, newpassword);
+		return"Password Change Successfully!!!!";	
 		
 	}
 }

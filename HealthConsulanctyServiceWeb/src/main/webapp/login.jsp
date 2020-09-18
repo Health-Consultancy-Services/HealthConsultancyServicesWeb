@@ -122,21 +122,21 @@ $('.message a').click(function(){
 </script>
  <div class="login-page">
   <div class="form">
-  <h3 colour=#1DD191>Admin Login</h3>
+  <h3 style="color:white">Admin Login</h3>
     <form class="login-form" method="POST" action="/login-user">
     			    <div class="form-group" style=" color: red; ">
 					<c:if test="${not empty error}">
 					<h5>${error}</h5>
 					</c:if>
 					</div>
-					<label class="control-label col-md-3" background="#1DD191">Email</label>
+					<label class="control-label col-md-3" style="color:white">Email</label>
       <input type="text" placeholder="Email" name="email" required data-validation-required-message="This field is required" value="${user.email }"/>
-      <label class="control-label col-md-3" background="">Password</label>
+      <label class="control-label col-md-3" style="color:white">Password</label>
       <input type="password" placeholder="Password" name="password" required data-validation-required-message="This field is required" value="${user.password }"/>
-      <label class="control-label col-md-3" background="">Role</label>
+      <label class="control-label col-md-3" style="color:white">Role</label>
       <input type="text" placeholder="Role" name="role"value="admin" readonly="true"/>
       <button value="Login" >login</button>
-      <p class="message">Not registered? <a href="#">Create an account</a></p>
+      <p class="message">Forgot password? <a href="#">Click me</a></p>
     </form>
   </div>
 </div>

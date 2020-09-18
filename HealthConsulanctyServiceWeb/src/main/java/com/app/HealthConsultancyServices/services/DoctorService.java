@@ -37,5 +37,5 @@ public void delete(int id)
 public void update(Doctor doctor, int doctorid)   
 {  
 	doctorRepository.save(doctor);  
-}  
+}
 }  
