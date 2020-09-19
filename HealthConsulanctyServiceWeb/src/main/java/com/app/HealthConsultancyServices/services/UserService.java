@@ -19,13 +19,8 @@ public class UserService {
 		userRepository.ChangePassword(email,password,newpassword);
 	}
 
-	public void saveOrUpdate(User user)   
+	public User saveOrUpdate(User user)   
 	{  
-		userRepository.save(user);  
-	}
-
-	public void update(User user, String email)   
-	{  
-		userRepository.save(user);  
+		return userRepository.save(user);  
 	}
 }

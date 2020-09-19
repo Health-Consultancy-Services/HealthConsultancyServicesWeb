@@ -24,9 +24,9 @@ public Doctor getDoctorById(int id)
 return doctorRepository.findById(id).get();  
 }  
   
-public void saveOrUpdate(Doctor doctor)   
+public Doctor saveOrUpdate(Doctor doctor)   
 {  
-	doctorRepository.save(doctor);  
+	return doctorRepository.save(doctor);  
 }  
   
 public void delete(int id)   

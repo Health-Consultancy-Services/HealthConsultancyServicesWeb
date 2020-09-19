@@ -17,27 +17,27 @@ public class UserRestController {
 	
 	//creating post mapping that post the doctor detail in the database  
 	@PostMapping("/user")  
-	private String saveUser(@RequestBody User user)   
+	private User saveUser(@RequestBody User user)   
 	{  
-		userService.saveOrUpdate(user);
-		return user.getEmail();  
- 
-	}  
-	//creating put mapping that updates the doctor detail   
-	@PutMapping("/user")  
-	private User update(@RequestBody User user)   
-	{  
-		userService.saveOrUpdate(user);   
-	return user;  
-	} 
+		User message = null;
+        try {
+            message = userService.saveOrUpdate(user);
+        } catch (Exception e) {
+         message = new User();
+        }
+    return message;
+    }
 	
 	@GetMapping("/login/{email}/{password}/{role}")
-	public String findByEmailAndPasswordAndRole(@PathVariable("email") String email,@PathVariable("password") String password,@PathVariable("role") String role) {
-		if(userService.findByEmailAndPasswordAndRole(email, password, role)!=null)
-		return "User logged in successfully";
-		else
-		return "Invalid Credientialss!!!!";
-	}
+	public User findByEmailAndPasswordAndRole(@PathVariable("email") String email,@PathVariable("password") String password,@PathVariable("role") String role) {
+		 User message = null;
+	        try {
+	            message = userService.findByEmailAndPasswordAndRole(email, password, role);
+	        } catch (Exception e) {
+	         message = new User();
+	        }
+	    return message;
+	    }
 	
 	@GetMapping("/changepassword/{email}/{password}/{newpassword}")
 	public String ChangePassword(@PathVariable("email") String email,@PathVariable("password") String password,@PathVariable("newpassword") String newpassword) {
