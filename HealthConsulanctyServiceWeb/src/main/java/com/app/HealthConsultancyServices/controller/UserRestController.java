@@ -38,7 +38,13 @@ public class UserRestController {
 	        }
 	    return message;
 	    }
-	
+
+	@GetMapping("/forgotpassword/{email}/{password}")
+	public String ForgotPassword(@PathVariable("email") String email,@PathVariable("password") String password) {
+		userService.ForgotPassword(email, password);
+		return"Password Change Successfully!!!!";	
+		
+	}
 	@GetMapping("/changepassword/{email}/{password}/{newpassword}")
 	public String ChangePassword(@PathVariable("email") String email,@PathVariable("password") String password,@PathVariable("newpassword") String newpassword) {
 		userService.ChangePassword(email, password, newpassword);

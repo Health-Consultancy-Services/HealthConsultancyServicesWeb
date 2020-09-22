@@ -15,11 +15,13 @@ public class UserService {
 		return userRepository.findByEmailAndPasswordAndRole(email, password, role);
 	}
 	
-	public void ChangePassword(String email,String password,String newpassword) {
-		userRepository.ChangePassword(email,password,newpassword);
-	}
-
-	public User saveOrUpdate(User user)   
+public void ChangePassword(String email,String password,String newpassword) {
+	userRepository.ChangePassword(email,password,newpassword);
+}
+public void ForgotPassword(String email,String password) {
+userRepository.ForgotPassword(email,password);
+}
+	public User saveOrUpdate(User user)
 	{  
 		return userRepository.save(user);  
 	}
