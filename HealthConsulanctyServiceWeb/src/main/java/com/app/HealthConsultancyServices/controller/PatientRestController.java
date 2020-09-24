@@ -27,7 +27,11 @@ private List<Patient> getAllPatient()
 {  
 return patientService.getAllPatient();  
 }  
-
+@GetMapping("/patientbyemail/{email}")  
+private List<Patient> findByEmail(@PathVariable("email") String email)   
+{  
+return patientService.findByEmail(email);  
+}
 @GetMapping("/patient/{patientid}")  
 private Patient getPatient(@PathVariable("patientid") int patientid)   
 {  

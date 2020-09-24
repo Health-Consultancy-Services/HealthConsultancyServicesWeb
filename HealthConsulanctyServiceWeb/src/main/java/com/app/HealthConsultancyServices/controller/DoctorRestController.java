@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;  
 import org.springframework.web.bind.annotation.RestController;  
 import com.app.HealthConsultancyServices.model.Doctor;
+import com.app.HealthConsultancyServices.model.Patient;
 import com.app.HealthConsultancyServices.model.User;
 import com.app.HealthConsultancyServices.services.DoctorService;  
 //mark class as Controller  
@@ -26,7 +27,11 @@ private List<Doctor> getAllDoctor()
 {  
 return doctorService.getAllDoctor();  
 }  
-
+@GetMapping("/doctorbyemail/{email}")  
+private List<Doctor> findByEmail(@PathVariable("email") String email)   
+{  
+return doctorService.findByEmail(email);  
+}
 
 @GetMapping("/doctor/{doctorid}")  
 private Doctor getDoctor(@PathVariable("doctorid") int doctorid)   

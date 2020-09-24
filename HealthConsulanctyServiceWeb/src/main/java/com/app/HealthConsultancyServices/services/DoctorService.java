@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.app.HealthConsultancyServices.model.Doctor;
+import com.app.HealthConsultancyServices.model.Patient;
 import com.app.HealthConsultancyServices.repository.DoctorRepository;
 @Service  
 public class DoctorService   
@@ -19,6 +20,13 @@ doctorRepository.findAll().forEach(doctor1 -> doctor.add(doctor1));
 return doctor;  
 }  
   
+public List<Doctor> findByEmail(String email)   
+{  
+List<Doctor> doctor = new ArrayList<Doctor>();  
+doctorRepository.findByEmail(email).forEach(doctor1 -> doctor.add(doctor1));  
+return doctor;  
+}
+
 public Doctor getDoctorById(int id)   
 {  
 return doctorRepository.findById(id).get();  
