@@ -12,10 +12,10 @@ public interface UserRepository extends CrudRepository<User, String> {
   public User findByEmailAndPasswordAndRole(String email, String password, String role);
   @Modifying
   @Query("UPDATE User u SET u.password = :newpassword WHERE u.email = :email and u.password = :password")
-  public void ChangePassword(@Param("email") String email,@Param("password") String password,@Param("newpassword") String newpassword);
+  public int ChangePassword(@Param("email") String email,@Param("password") String password,@Param("newpassword") String newpassword);
   
 @Modifying
 @Query("UPDATE User u SET u.password = :password WHERE u.email = :email")
-public void ForgotPassword(@Param("email") String email,@Param("password") String password);
+public int ForgotPassword(@Param("email") String email,@Param("password") String password);
 
 }

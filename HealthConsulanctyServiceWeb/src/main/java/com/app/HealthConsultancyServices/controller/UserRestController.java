@@ -40,15 +40,14 @@ public class UserRestController {
 	    }
 
 	@GetMapping("/forgotpassword/{email}/{password}")
-	public String ForgotPassword(@PathVariable("email") String email,@PathVariable("password") String password) {
-		userService.ForgotPassword(email, password);
-		return"Password Change Successfully!!!!";	
+	public Integer ForgotPassword(@PathVariable("email") String email,@PathVariable("password") String password) {
+	Integer result = userService.ForgotPassword(email, password);
+		return result;	
 		
 	}
 	@GetMapping("/changepassword/{email}/{password}/{newpassword}")
-	public String ChangePassword(@PathVariable("email") String email,@PathVariable("password") String password,@PathVariable("newpassword") String newpassword) {
-		userService.ChangePassword(email, password, newpassword);
-		return"Password Change Successfully!!!!";	
-		
+	public Integer ChangePassword(@PathVariable("email") String email,@PathVariable("password") String password,@PathVariable("newpassword") String newpassword) {
+		Integer result = userService.ChangePassword(email, password, newpassword);
+		return result;
 	}
 }
