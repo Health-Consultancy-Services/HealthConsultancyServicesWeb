@@ -21,11 +21,9 @@ patientRepository.findAll().forEach(patient1 -> patient.add(patient1));
 return patient;  
 }  
 
-public List<Patient> findByEmail(String email)   
-{  
-List<Patient> patient = new ArrayList<Patient>();  
-patientRepository.findByEmail(email).forEach(patient1 -> patient.add(patient1));  
-return patient;  
+public Patient findByEmail(String email)   
+{
+return patientRepository.findByEmail(email);  
 }
 
 public Patient getPatientById(int id)   

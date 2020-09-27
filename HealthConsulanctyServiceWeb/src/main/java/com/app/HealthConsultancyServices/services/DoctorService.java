@@ -20,11 +20,16 @@ doctorRepository.findAll().forEach(doctor1 -> doctor.add(doctor1));
 return doctor;  
 }  
   
-public List<Doctor> findByEmail(String email)   
-{  
+public Doctor findByEmail(String email)   
+{    
+return doctorRepository.findByEmail(email); 
+}
+
+public List<Doctor> findByDepartment(String department)   
+{     
 List<Doctor> doctor = new ArrayList<Doctor>();  
-doctorRepository.findByEmail(email).forEach(doctor1 -> doctor.add(doctor1));  
-return doctor;  
+doctorRepository.findByDepartment(department).forEach(doctor1 -> doctor.add(doctor1));  
+return doctor; 
 }
 
 public Doctor getDoctorById(int id)   

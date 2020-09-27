@@ -10,6 +10,7 @@ import org.springframework.data.repository.query.Param;
 import com.app.HealthConsultancyServices.model.Doctor;
 import com.app.HealthConsultancyServices.model.Patient;
 public interface DoctorRepository extends JpaRepository<Doctor, Integer> {
-	List<Doctor> findByEmail(String email);
+	Doctor findByEmail(String email);
+	List<Doctor> findByDepartment(String department);
 
 }
