@@ -28,7 +28,7 @@ private List<Doctor> getAllDoctor()
 return doctorService.getAllDoctor();  
 }  
 @GetMapping("/doctorbyemail/{email}")  
-private Doctor findByEmail(@PathVariable("email") String email)   
+private Doctor findDoctorByEmail(@PathVariable("email") String email)   
 {  
 return doctorService.findByEmail(email);  
 }
