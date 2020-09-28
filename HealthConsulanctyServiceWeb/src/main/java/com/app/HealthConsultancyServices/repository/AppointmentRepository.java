@@ -9,11 +9,11 @@ import com.app.HealthConsultancyServices.model.Appointment;
 
 public interface AppointmentRepository extends CrudRepository<Appointment, Integer>{
 
-	@Modifying
+	  @Modifying
 	  @Query("UPDATE Appointment a SET a.status = 'accept' WHERE a.appointment_id = :appointment_id")
 	  public int AcceptAppointment(@Param("appointment_id") int appointment_id);
 	
-	@Modifying
+	  @Modifying
 	  @Query("UPDATE Appointment a SET a.status = 'decline' WHERE a.appointment_id = :appointment_id")
 	  public int DeclineAppointment(@Param("appointment_id") int appointment_id);
 	  

@@ -163,7 +163,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">DoctorTable</li>
+              <li class="breadcrumb-item active">Doctor Registerd</li>
             </ol>
           </div>
         </div>
@@ -176,10 +176,10 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Doctor Details</h3>
+                <h3 class="card-title">Doctor Registerd</h3>
               </div>
               <!-- /.card-header -->
-              <div class="card-body"  ng-app="HealthConsultancyServiceWeb" ng-controller="DoctorViewController">
+              <div class="card-body"  ng-app="HealthConsultancyServiceWeb" ng-controller="AcceptDoctorViewController">
                 <table id="example2" class="table table-bordered table-hover">
                   <thead>
                   <tr>
@@ -194,8 +194,7 @@
                     <th>Qualification</th>
                     <th>Gender</th>
                     <th>Status</th>
-                    <th>Delete</th>
-                    <th>Edit</th>
+                    <th>Add</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -211,8 +210,7 @@
 									<td>{{doctor.qualification}}</td>
 									<td>{{doctor.gender}}</td>
 									<td>{{doctor.status}}</td>
-									<td><a><i class="fas fa-trash-alt"  ng-click="deleteDoctor(doctor)"></i></a></td>
-									<td><a href="/edit-user?id=${doctor.doctor_id}"><i class="fas fa-user-edit"></i></a></td>
+									<td><button type="button" ng-click="acceptDoctor(doctor)" class="btn btn-block bg-gradient-primary">Add</button></a></td>
 								</tr>
                   </tbody>
                 </table>

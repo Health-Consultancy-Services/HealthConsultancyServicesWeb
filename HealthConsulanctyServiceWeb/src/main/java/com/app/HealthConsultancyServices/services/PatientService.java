@@ -26,9 +26,9 @@ public Patient findByEmail(String email)
 return patientRepository.findByEmail(email);  
 }
 
-public Patient getPatientById(int id)   
+public Patient getPatientById(int patient_id)   
 {  
-return patientRepository.findById(id).get();  
+return patientRepository.findById(patient_id).get();  
 }  
   
 public Patient saveOrUpdate(Patient patient)   
@@ -36,9 +36,9 @@ public Patient saveOrUpdate(Patient patient)
 	return patientRepository.save(patient);  
 }  
  
-public void delete(int id)   
+public void delete(int patient_id)   
 {  
-	patientRepository.deleteById(id);  
+	patientRepository.deleteById(patient_id);  
 }  
   
 public void update(Patient patient, int patientid)   

@@ -40,10 +40,10 @@ return doctorService.getDoctorById(doctorid);
 }  
 
 
-@DeleteMapping("/doctor/{doctorid}")  
-private void deleteDoctor(@PathVariable("doctorid") int doctorid)   
+@DeleteMapping("/deletedoctor/{doctor_id}")  
+private void deleteDoctor(@PathVariable("doctor_id") int doctor_id)   
 {  
-	doctorService.delete(doctorid);  
+	doctorService.delete(doctor_id);  
 }  
 
 
@@ -66,4 +66,18 @@ private Doctor update(@RequestBody Doctor doctor)
 	doctorService.saveOrUpdate(doctor);   
 return doctor;  
 }  
+
+@GetMapping("/doctorbystatus")  
+private List<Doctor> getBYstatus()   
+{  
+return  doctorService.findByStatus("inhold");  
+}  
+
+@GetMapping("/acceptdoctor/{doctor_id}")
+public Integer AcceptDoctor(@PathVariable("doctor_id") int doctor_id) {
+Integer result = doctorService.AcceptDoctor(doctor_id);
+	return result;	
+	
+}
+
 }  

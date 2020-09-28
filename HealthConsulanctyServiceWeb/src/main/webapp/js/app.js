@@ -13,6 +13,27 @@ $scope.Doctor = response.data;
 }, function error(response) {
 
 });
+$scope.deleteDoctor = function(doctor) {
+
+    //$http DELETE function
+    $http({
+      url: 'http://localhost:8080/deletedoctor/' + doctor.doctor_id,
+      method: 'DELETE',
+
+    }).then(function successCallback(response) {
+
+      alert("Doctor has deleted Successfully");
+      var index = $scope.Doctor.indexOf(doctor);
+      $scope.Doctor.splice(index, 1);
+
+    }, function errorCallback(response) {
+
+      alert("Error. while deleting user Try Again!");
+
+    });
+
+  };
+
 });
 
 app.controller('PatientViewController', function($scope,$http){
@@ -56,23 +77,57 @@ app.controller('LoginController', function ($scope, $http, $log, $location) {
 });
 
 app.controller('ChangePasswordController', function ($scope, $http, $log, $location) {
-
-  $scope.email;
-  $scope.password;
-  $scope.newpassword;
-
   $scope.changepass = function () {
-
     $http({
       url: "http://localhost:8080/changepassword" + "/" + $scope.email + "/" + $scope.password + "/" + $scope.newpassword,
       method: "GET"
     }).then(function (respone) {
-	if(response.data= 1){location.replace("../login.html");
+	if(respone.data=1){
+	location.replace("../login.html");
 	 alert("Password Changed Sucessfully!!");}
-	 else{$scope.error = 'Invalid email_id and password!!';;}
-    }, function (response) {
+else if(respone.data=0){
+	$scope.error = 'Invalid email_id and password!!';
+   } 
+}, function (response) {
 	location.replace("../login.html");
 	 alert("Password Changed Sucessfully!!");
 });
   };
+});
+
+
+
+app.controller('AcceptDoctorViewController', function($scope,$http, $location){
+$http({
+
+method: 'GET',
+
+url: 'http://localhost:8080/doctorbystatus'
+
+}).then(function success(response) {
+
+$scope.Doctor = response.data;
+}, function error(response) {
+
+});
+$scope.acceptDoctor = function(doctor) {
+
+    //$http DELETE function
+    $http({
+      url: 'http://localhost:8080/acceptdoctor/' + doctor.doctor_id,
+      method: 'GET',
+
+    }).then(function successCallback(response) {
+
+      alert("Doctor Added Successfully");
+      location.replace("../AcceptDoctor.html");
+
+    }, function errorCallback(response) {
+
+      alert("Error. while deleting user Try Again!");
+
+    });
+
+  };
+
 });

@@ -32,9 +32,9 @@ doctorRepository.findByDepartment(department).forEach(doctor1 -> doctor.add(doct
 return doctor; 
 }
 
-public Doctor getDoctorById(int id)   
+public Doctor getDoctorById(int doctor_id)   
 {  
-return doctorRepository.findById(id).get();  
+return doctorRepository.findById(doctor_id).get();  
 }  
   
 public Doctor saveOrUpdate(Doctor doctor)   
@@ -42,13 +42,23 @@ public Doctor saveOrUpdate(Doctor doctor)
 	return doctorRepository.save(doctor);  
 }  
   
-public void delete(int id)   
+public void delete(int doctor_id)   
 {  
-	doctorRepository.deleteById(id);  
+	doctorRepository.deleteById(doctor_id);  
 }  
   
 public void update(Doctor doctor, int doctorid)   
 {  
 	doctorRepository.save(doctor);  
+}
+
+public List<Doctor> findByStatus(String status)   
+{     
+List<Doctor> doctor = new ArrayList<Doctor>();  
+doctorRepository.findByStatus(status).forEach(doctor1 -> doctor.add(doctor1));  
+return doctor; 
+}
+   public int AcceptDoctor(int doctor_id) {
+	return doctorRepository.AcceptDoctor(doctor_id);
 }
 }  

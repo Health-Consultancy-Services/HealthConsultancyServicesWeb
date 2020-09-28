@@ -38,10 +38,10 @@ private Patient getPatient(@PathVariable("patientid") int patientid)
 return patientService.getPatientById(patientid);  
 }  
 
-@DeleteMapping("/patient/{patientid}")  
-private void deletePatient(@PathVariable("patientid") int patientid)   
+@DeleteMapping("/patient/{patient_id}")  
+private void deletePatient(@PathVariable("patient_id") int patient_id)   
 {  
-	patientService.delete(patientid);  
+	patientService.delete(patient_id);
 }  
 
 @PostMapping("/patient")  
