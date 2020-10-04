@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;  
 import org.springframework.web.bind.annotation.RestController;  
 import com.app.HealthConsultancyServices.model.Doctor;
-import com.app.HealthConsultancyServices.model.Patient;
-import com.app.HealthConsultancyServices.model.User;
 import com.app.HealthConsultancyServices.services.DoctorService;  
 //mark class as Controller  
 @RestController  
@@ -76,8 +74,16 @@ return  doctorService.findByStatus("inhold");
 @GetMapping("/acceptdoctor/{doctor_id}")
 public Integer AcceptDoctor(@PathVariable("doctor_id") int doctor_id) {
 Integer result = doctorService.AcceptDoctor(doctor_id);
-	return result;	
-	
+	return result;		
 }
-
+@GetMapping("/CountDoctor")
+public Integer CountDoctor() {
+	Integer result = doctorService.CountDoctor();
+	return result;
+}
+@GetMapping("/CountDoctorByStatus")
+public Integer CountDoctorByStatus() {
+	Integer result = doctorService.CountDoctorByStatus();
+	return result;
+}
 }  

@@ -9,9 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;  
 import org.springframework.web.bind.annotation.RequestBody;  
 import org.springframework.web.bind.annotation.RestController;
-
 import com.app.HealthConsultancyServices.model.Patient;
-import com.app.HealthConsultancyServices.model.User;
 import com.app.HealthConsultancyServices.services.PatientService; 
 //mark class as Controller  
 @RestController  
@@ -63,4 +61,12 @@ private Patient update(@RequestBody Patient patient)
 	patientService.saveOrUpdate(patient);   
 return patient;  
 }  
+
+@GetMapping("/CountPatient")
+public Integer CountPatient() {
+	Integer result = patientService.CountPatient();
+	return result;
+}
+
+
 }  

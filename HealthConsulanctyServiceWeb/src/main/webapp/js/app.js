@@ -52,6 +52,21 @@ $scope.Patient = response.data;
 
 });
 
+app.controller('CountController', function($scope,$http){
+$http({
+
+method: 'GET',
+
+url: 'http://localhost:8080/CountDoctor'
+
+}).then(function success(response) {
+$scope.data = response.data;
+}, function error(response) {
+
+});
+
+});
+
 app.controller('LoginController', function ($scope, $http, $log, $location) {
 
   $scope.email;
@@ -61,15 +76,15 @@ app.controller('LoginController', function ($scope, $http, $log, $location) {
   $scope.login = function () {
 
     $http({
-      url: "http://localhost:8080/login" + "/" + $scope.email + "/" + $scope.password + "/" + $scope.role,
+      url: "http://localhost:8080/login" + "/" + $scope.email + "/" + $scope.password + "/admin" ,
       method: "GET"
     }).then(function (response) {
-	$scope.response = response.data;
-	$scope.email = response.data.email;
-	$scope.password = response.data.password;
-	$scope.role = response.data.role;
+	if(response.data.email){
 	    alert("Successfully login!!!");	
-		location.replace("../Dashboard.html");
+		location.replace("../Dashboard.html");}
+		else{
+			$scope.error = 'Invalid credentials!!!';
+		}
 }, function error(response) {
       $scope.error = 'Invalid credentials!!!';
     });
@@ -82,10 +97,10 @@ app.controller('ChangePasswordController', function ($scope, $http, $log, $locat
       url: "http://localhost:8080/changepassword" + "/" + $scope.email + "/" + $scope.password + "/" + $scope.newpassword,
       method: "GET"
     }).then(function (respone) {
-	if(respone.data=1){
+	if(respone.data==1){
 	location.replace("../login.html");
 	 alert("Password Changed Sucessfully!!");}
-else if(respone.data=0){
+else if(respone.data==0){
 	$scope.error = 'Invalid email_id and password!!';
    } 
 }, function (response) {

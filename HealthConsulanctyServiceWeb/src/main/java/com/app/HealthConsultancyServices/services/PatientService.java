@@ -45,4 +45,9 @@ public void update(Patient patient, int patientid)
 {  
 	patientRepository.save(patient);  
 }  
+public int CountPatient() {
+	 return  patientRepository.CountPatient();
+}
+
+
 }  

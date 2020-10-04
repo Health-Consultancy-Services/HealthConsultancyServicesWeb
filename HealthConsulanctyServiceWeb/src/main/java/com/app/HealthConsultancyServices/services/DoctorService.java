@@ -4,9 +4,7 @@ import java.util.ArrayList;
 import java.util.List;  
 import org.springframework.beans.factory.annotation.Autowired;  
 import org.springframework.stereotype.Service;
-
 import com.app.HealthConsultancyServices.model.Doctor;
-import com.app.HealthConsultancyServices.model.Patient;
 import com.app.HealthConsultancyServices.repository.DoctorRepository;
 @Service  
 public class DoctorService   
@@ -61,4 +59,11 @@ return doctor;
    public int AcceptDoctor(int doctor_id) {
 	return doctorRepository.AcceptDoctor(doctor_id);
 }
+   public int CountDoctor() {
+	 return  doctorRepository.CountDoctor();
+   }
+   
+   public int CountDoctorByStatus() {
+		 return  doctorRepository.CountDoctorByStatus();
+	   }
 }  
