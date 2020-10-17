@@ -146,6 +146,53 @@
               </li>
             </ul>
           </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-chart-pie"></i>
+              <p>
+                Department
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="/Gastrology.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Gastrology</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/Eyespecialist.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Eye Specialist</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/ENTspecialist.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>ENT Specialist</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/Gynecologist.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Gynecologist</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/Dentist.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Dentist</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/Cardiologist.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Cardiologist</p>
+                </a>
+              </li>
+            </ul>
+          </li>
       <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
@@ -199,7 +246,7 @@
                   </thead>
                   <tbody>
 								<tr ng-repeat="doctor in Doctor">
-									<td>{{doctor.doctor_id}}</td>
+									<td><span class="badge bg-danger">{{doctor.doctor_id}}</span></td>
 									<td>{{doctor.doctor_name}}</td>
 									<td>{{doctor.age}}</td>
 									<td>{{doctor.phoneno}}</td>

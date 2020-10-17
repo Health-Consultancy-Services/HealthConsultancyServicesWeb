@@ -36,6 +36,8 @@ $scope.deleteDoctor = function(doctor) {
 
 });
 
+
+
 app.controller('PatientViewController', function($scope,$http){
 $http({
 
@@ -52,6 +54,8 @@ $scope.Patient = response.data;
 
 });
 
+
+
 app.controller('CountController', function($scope,$http){
 $http({
 
@@ -66,6 +70,8 @@ $scope.data = response.data;
 });
 
 });
+
+
 
 app.controller('LoginController', function ($scope, $http, $log, $location) {
 
@@ -90,6 +96,8 @@ app.controller('LoginController', function ($scope, $http, $log, $location) {
     });
   };
 });
+
+
 
 app.controller('ChangePasswordController', function ($scope, $http, $log, $location) {
   $scope.changepass = function () {
@@ -144,5 +152,118 @@ $scope.acceptDoctor = function(doctor) {
     });
 
   };
+
+});
+
+
+app.controller('DentistViewController', function($scope,$http){
+$http({
+
+method: 'GET',
+
+url: 'http://localhost:8080/doctorbydepartment/Dentist'
+
+}).then(function success(response) {
+
+$scope.Doctor = response.data;
+}, function error(response) {
+
+});
+
+});
+
+app.controller('ENTViewController', function($scope,$http){
+$http({
+
+method: 'GET',
+
+url: 'http://localhost:8080/doctorbydepartment/ENTspecialist'
+
+}).then(function success(response) {
+
+$scope.Doctor = response.data;
+}, function error(response) {
+
+});
+
+});
+
+app.controller('GastrologistViewController', function($scope,$http){
+$http({
+
+method: 'GET',
+
+url: 'http://localhost:8080/doctorbydepartment/Gastrologist'
+
+}).then(function success(response) {
+
+$scope.Doctor = response.data;
+}, function error(response) {
+
+});
+
+});
+
+app.controller('GynecologistViewController', function($scope,$http){
+$http({
+
+method: 'GET',
+
+url: 'http://localhost:8080/doctorbydepartment/Gynecologist'
+
+}).then(function success(response) {
+
+$scope.Doctor = response.data;
+}, function error(response) {
+
+});
+
+});
+
+app.controller('CardiologistViewController', function($scope,$http){
+$http({
+
+method: 'GET',
+
+url: 'http://localhost:8080/doctorbydepartment/Cardiologist'
+
+}).then(function success(response) {
+
+$scope.Doctor = response.data;
+}, function error(response) {
+
+});
+
+});
+
+app.controller('CardiologistViewController', function($scope,$http){
+$http({
+
+method: 'GET',
+
+url: 'http://localhost:8080/doctorbydepartment/Cardiologist'
+
+}).then(function success(response) {
+
+$scope.Doctor = response.data;
+}, function error(response) {
+
+});
+
+});
+
+app.controller('EyespecialistViewController', function($scope,$http){
+$http({
+
+method: 'GET',
+
+url: 'http://localhost:8080/doctorbydepartment/Eyespecialist'
+
+}).then(function success(response) {
+
+$scope.Doctor = response.data;
+}, function error(response) {
+
+});
 
 });
