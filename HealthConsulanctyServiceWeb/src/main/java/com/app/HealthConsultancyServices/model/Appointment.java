@@ -13,9 +13,9 @@ public class Appointment {
 	@Column
 	private int appointment_id;
 	@Column
-	private String doctor_name;
+	private String doctorname;
 	@Column
-	private String patient_name;
+	private String patientname;
 	@Column
 	private String date;
 	@Column
@@ -29,17 +29,17 @@ public class Appointment {
 	public void setAppointment_id(int appointment_id) {
 		this.appointment_id = appointment_id;
 	}
-	public String getDoctor_name() {
-		return doctor_name;
+	public String getDoctorname() {
+		return doctorname;
 	}
-	public void setDoctor_name(String doctor_name) {
-		this.doctor_name = doctor_name;
+	public void setDoctorname(String doctorname) {
+		this.doctorname = doctorname;
 	}
-	public String getPatient_name() {
-		return patient_name;
+	public String getPatientname() {
+		return patientname;
 	}
-	public void setPatient_name(String patient_name) {
-		this.patient_name = patient_name;
+	public void setPatientname(String patientname) {
+		this.patientname = patientname;
 	}
 	public String getDate() {
 		return date;

@@ -1,5 +1,7 @@
 package com.app.HealthConsultancyServices.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,6 +29,12 @@ public class AppointmentRestController {
 	        }
 	    return message;
 	    }  
+	
+	@GetMapping("/appointmentbypatientname/{patientname}")  
+	private List<Appointment> findByPatientname(@PathVariable("patientname") String patientname)   
+	{  
+	return  appointmentService.findByPatientname(patientname,"inhold");  
+	}
 	
 	
 	@GetMapping("/acceptappointment/{appointment_id}")

@@ -1,5 +1,8 @@
 package com.app.HealthConsultancyServices.services;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +19,12 @@ public class AppointmentService {
 	@Autowired
 	AppointmentRepository appointmentRepository;
 	
+	public List<Appointment> findByPatientname(String patientname,String status)   
+	{     
+	List<Appointment> appointment = new ArrayList<Appointment>();  
+	appointmentRepository.findByPatientnameAndStatus(patientname,status).forEach(appointment1 -> appointment.add(appointment1));  
+	return appointment; 
+	}
 	
 	public Appointment saveOrUpdate(Appointment appointment)   
 	{  
