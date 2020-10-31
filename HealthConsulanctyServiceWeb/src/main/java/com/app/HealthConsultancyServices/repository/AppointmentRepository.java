@@ -12,12 +12,12 @@ import com.app.HealthConsultancyServices.model.Appointment;
 public interface AppointmentRepository extends CrudRepository<Appointment, Integer>{
 	List<Appointment> findByDoctornameAndStatus(String doctorname,String status);
 	List<Appointment> findByPatientnameAndStatus(String patientname,String status);
-	  @Modifying
-	  @Query("UPDATE Appointment a SET a.status = 'accept' WHERE a.appointment_id = :appointment_id")
-	  public int AcceptAppointment(@Param("appointment_id") int appointment_id);
+	@Modifying
+	  @Query("UPDATE Appointment a SET a.status = 'accept' WHERE a.patientname = :patientname and a.status='inhold'")
+	  public int AcceptAppointment(@Param("patientname") String patientname);
 	
 	  @Modifying
-	  @Query("UPDATE Appointment a SET a.status = 'decline' WHERE a.appointment_id = :appointment_id")
-	  public int DeclineAppointment(@Param("appointment_id") int appointment_id);
+	  @Query("UPDATE Appointment a SET a.status = 'decline' WHERE a.patientname = :patientname and a.status='inhold'")
+	  public int DeclineAppointment(@Param("patientname") String patientname);
 	  
 }

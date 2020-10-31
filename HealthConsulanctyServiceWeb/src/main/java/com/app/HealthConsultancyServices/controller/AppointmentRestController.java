@@ -42,17 +42,16 @@ public class AppointmentRestController {
 	return  appointmentService.findByDoctorname(doctorname,"inhold");  
 	} 
 	
-	
-	@GetMapping("/acceptappointment/{appointment_id}")
-	public Integer AcceptAppointment(@PathVariable("appointment_id") int appointment_id) {
-	Integer result = appointmentService.AcceptAppointment(appointment_id);
+	@GetMapping("/acceptappointment/{patientname}")
+	public Integer AcceptAppointment(@PathVariable("patientname") String patientname) {
+	Integer result = appointmentService.AcceptAppointment(patientname);
 		return result;	
 		
 	}
 	
-	@GetMapping("/declineappointment/{appointment_id}")
-	public Integer DeclineAppointment(@PathVariable("appointment_id") int appointment_id) {
-	Integer result = appointmentService.DeclineAppointment(appointment_id);
+	@GetMapping("/declineappointment/{patientname}")
+	public Integer DeclineAppointment(@PathVariable("patientname") String patientname) {
+	Integer result = appointmentService.DeclineAppointment(patientname);
 		return result;	
 		
 	}

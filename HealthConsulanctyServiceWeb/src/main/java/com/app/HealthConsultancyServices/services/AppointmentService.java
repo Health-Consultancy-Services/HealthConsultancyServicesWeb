@@ -37,12 +37,12 @@ public class AppointmentService {
 		return appointmentRepository.save(appointment);  
 	}  
 	
-	public int AcceptAppointment(int appointment_id) {
-		return appointmentRepository.AcceptAppointment(appointment_id);
+	public int AcceptAppointment(String patientname) {
+		return appointmentRepository.AcceptAppointment(patientname);
 	}
 	
-	public int DeclineAppointment(int appointment_id) {
-		return appointmentRepository.DeclineAppointment(appointment_id);
+	public int DeclineAppointment(String patientname) {
+		return appointmentRepository.DeclineAppointment(patientname);
 	}
 	
 
