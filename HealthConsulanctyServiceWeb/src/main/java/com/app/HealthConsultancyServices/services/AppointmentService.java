@@ -25,6 +25,12 @@ public class AppointmentService {
 	appointmentRepository.findByPatientnameAndStatus(patientname,status).forEach(appointment1 -> appointment.add(appointment1));  
 	return appointment; 
 	}
+	public List<Appointment> findByDoctorname(String doctorname,String status)   
+	{     
+	List<Appointment> appointment = new ArrayList<Appointment>();  
+	appointmentRepository.findByDoctornameAndStatus(doctorname,status).forEach(appointment1 -> appointment.add(appointment1));  
+	return appointment; 
+	}
 	
 	public Appointment saveOrUpdate(Appointment appointment)   
 	{  

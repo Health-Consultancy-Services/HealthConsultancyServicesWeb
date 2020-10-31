@@ -36,6 +36,12 @@ public class AppointmentRestController {
 	return  appointmentService.findByPatientname(patientname,"inhold");  
 	}
 	
+	@GetMapping("/appointmentbydoctorname/{doctorname}")  
+	private List<Appointment> findByDoctorname(@PathVariable("doctorname") String doctorname)   
+	{  
+	return  appointmentService.findByDoctorname(doctorname,"inhold");  
+	} 
+	
 	
 	@GetMapping("/acceptappointment/{appointment_id}")
 	public Integer AcceptAppointment(@PathVariable("appointment_id") int appointment_id) {

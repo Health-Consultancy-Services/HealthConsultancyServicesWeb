@@ -10,6 +10,7 @@ import org.springframework.data.repository.query.Param;
 import com.app.HealthConsultancyServices.model.Appointment;
 
 public interface AppointmentRepository extends CrudRepository<Appointment, Integer>{
+	List<Appointment> findByDoctornameAndStatus(String doctorname,String status);
 	List<Appointment> findByPatientnameAndStatus(String patientname,String status);
 	  @Modifying
 	  @Query("UPDATE Appointment a SET a.status = 'accept' WHERE a.appointment_id = :appointment_id")
