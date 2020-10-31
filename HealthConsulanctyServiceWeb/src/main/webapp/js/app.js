@@ -1,6 +1,6 @@
 var app = angular.module('HealthConsultancyServiceWeb', []);
 
-app.controller('DoctorViewController', function($scope,$http){
+app.controller('DoctorViewController', function($scope,$http,$location){
 $http({
 
 method: 'GET',
@@ -8,7 +8,6 @@ method: 'GET',
 url: 'http://localhost:8080/doctor'
 
 }).then(function success(response) {
-
 $scope.Doctor = response.data;
 }, function error(response) {
 
@@ -46,7 +45,6 @@ method: 'GET',
 url: 'http://localhost:8080/patient'
 
 }).then(function success(response) {
-
 $scope.Patient = response.data;
 }, function error(response) {
 
@@ -84,10 +82,11 @@ app.controller('LoginController', function ($scope, $http, $log, $location) {
     $http({
       url: "http://localhost:8080/login" + "/" + $scope.email + "/" + $scope.password + "/admin" ,
       method: "GET"
-    }).then(function (response) {
+    }).then(function (response) {   
 	if(response.data.email){
 	    alert("Successfully login!!!");	
-		location.replace("../Dashboard.html");}
+		location.replace("../Dashboard.html");
+   sessionStorage.setItem("email" ,JSON.stringify(response.data.email));}
 		else{
 			$scope.error = 'Invalid credentials!!!';
 		}
@@ -100,12 +99,16 @@ app.controller('LoginController', function ($scope, $http, $log, $location) {
 
 
 app.controller('ChangePasswordController', function ($scope, $http, $log, $location) {
+string=sessionStorage.getItem("email");
+		var obj =JSON.parse(string);
+		$scope.email = obj;
   $scope.changepass = function () {
     $http({
       url: "http://localhost:8080/changepassword" + "/" + $scope.email + "/" + $scope.password + "/" + $scope.newpassword,
       method: "GET"
     }).then(function (respone) {
 	if(respone.data==1){
+		sessionStorage.clear();
 	location.replace("../login.html");
 	 alert("Password Changed Sucessfully!!");}
 else if(respone.data==0){
@@ -164,7 +167,6 @@ method: 'GET',
 url: 'http://localhost:8080/doctorbydepartment/Dentist'
 
 }).then(function success(response) {
-
 $scope.Doctor = response.data;
 }, function error(response) {
 
@@ -180,7 +182,6 @@ method: 'GET',
 url: 'http://localhost:8080/doctorbydepartment/ENTspecialist'
 
 }).then(function success(response) {
-
 $scope.Doctor = response.data;
 }, function error(response) {
 
@@ -196,7 +197,6 @@ method: 'GET',
 url: 'http://localhost:8080/doctorbydepartment/Gastrologist'
 
 }).then(function success(response) {
-
 $scope.Doctor = response.data;
 }, function error(response) {
 
@@ -212,7 +212,6 @@ method: 'GET',
 url: 'http://localhost:8080/doctorbydepartment/Gynecologist'
 
 }).then(function success(response) {
-
 $scope.Doctor = response.data;
 }, function error(response) {
 
@@ -228,7 +227,6 @@ method: 'GET',
 url: 'http://localhost:8080/doctorbydepartment/Cardiologist'
 
 }).then(function success(response) {
-
 $scope.Doctor = response.data;
 }, function error(response) {
 
@@ -244,7 +242,6 @@ method: 'GET',
 url: 'http://localhost:8080/doctorbydepartment/Cardiologist'
 
 }).then(function success(response) {
-
 $scope.Doctor = response.data;
 }, function error(response) {
 
@@ -260,10 +257,17 @@ method: 'GET',
 url: 'http://localhost:8080/doctorbydepartment/Eyespecialist'
 
 }).then(function success(response) {
-
 $scope.Doctor = response.data;
+
 }, function error(response) {
 
 });
 
+});
+
+app.controller('Logout', function ($scope) {
+  $scope.logout = function () {
+   sessionStorage.clear();
+location.replace("../login.html");
+  };
 });
