@@ -26,6 +26,11 @@ public Patient findByEmail(String email)
 return patientRepository.findByEmail(email);  
 }
 
+public Patient findByPatientname(String patientname)   
+{
+return patientRepository.findByPatientname(patientname);  
+}
+
 public Patient getPatientById(int patient_id)   
 {  
 return patientRepository.findById(patient_id).get();  

@@ -23,6 +23,12 @@ public Doctor findByEmail(String email)
 return doctorRepository.findByEmail(email); 
 }
 
+public Doctor findByDoctorname(String doctorname)   
+{    
+return doctorRepository.findByDoctorname(doctorname); 
+}
+
+
 public List<Doctor> findByDepartment(String department)   
 {     
 List<Doctor> doctor = new ArrayList<Doctor>();  

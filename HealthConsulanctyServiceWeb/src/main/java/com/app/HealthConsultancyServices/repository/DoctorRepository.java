@@ -9,6 +9,7 @@ import org.springframework.data.repository.query.Param;
 import com.app.HealthConsultancyServices.model.Doctor;
 public interface DoctorRepository extends CrudRepository<Doctor, Integer> {
 	Doctor findByEmail(String email);
+	Doctor findByDoctorname(String doctorname);
 	List<Doctor> findByDepartment(String department);
 	List<Doctor> findByStatus(String status);
 	

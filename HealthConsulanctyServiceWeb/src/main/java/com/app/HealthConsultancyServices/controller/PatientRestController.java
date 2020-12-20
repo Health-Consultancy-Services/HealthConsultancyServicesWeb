@@ -30,6 +30,11 @@ private Patient findByEmail(@PathVariable("email") String email)
 {  
 return patientService.findByEmail(email);  
 }
+@GetMapping("/patientbyname/{patientname}")  
+private Patient findByPatientName(@PathVariable("patientname") String patientname)   
+{  
+return patientService.findByPatientname(patientname);  
+}
 @GetMapping("/patient/{patientid}")  
 private Patient getPatient(@PathVariable("patientid") int patientid)   
 {  
