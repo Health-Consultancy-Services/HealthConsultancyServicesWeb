@@ -12,7 +12,7 @@ public class Patient {
 	@Column  
 	private int patient_id;  
 	@Column  
-	private String patientname;  
+	private String patient_name;  
 	@Column  
 	private String age;
 	@Column  
@@ -27,11 +27,11 @@ public class Patient {
 	public void setPatient_id(int patient_id) {
 		this.patient_id = patient_id;
 	}
-	public String getPatientname() {
-		return patientname;
+	public String getPatient_name() {
+		return patient_name;
 	}
-	public void setPatientname(String patientname) {
-		this.patientname = patientname;
+	public void setPatient_name(String patient_name) {
+		this.patient_name = patient_name;
 	}
 	public String getAge() {
 		return age;

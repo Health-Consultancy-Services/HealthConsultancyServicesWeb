@@ -12,7 +12,7 @@ public class Doctor {
 	@Column  
 	private int doctor_id;  
 	@Column  
-	private String doctorname;  
+	private String doctor_name;  
 	@Column  
 	private String age;
 	@Column  
@@ -37,11 +37,11 @@ public class Doctor {
 	public void setDoctor_id(int doctor_id) {
 		this.doctor_id = doctor_id;
 	}
-	public String getDoctorname() {
-		return doctorname;
+	public String getDoctor_name() {
+		return doctor_name;
 	}
-	public void setDoctorname(String doctorname) {
-		this.doctorname = doctorname;
+	public void setDoctor_name(String doctor_name) {
+		this.doctor_name = doctor_name;
 	}
 	public String getAge() {
 		return age;

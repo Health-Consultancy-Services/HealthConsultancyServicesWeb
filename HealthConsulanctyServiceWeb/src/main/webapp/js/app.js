@@ -271,3 +271,52 @@ app.controller('Logout', function ($scope) {
 location.replace("../login.html");
   };
 });
+
+app.controller('AddContactController', function ($scope, $http, $log, $location) {
+  $scope.addContact = function () {
+const data={
+    "name": $scope.name,
+    "email": $scope.email,
+    "phoneno": $scope.phoneno,
+    "message": $scope.message
+}
+    $http({
+      url: "http://localhost:8080/contact",data ,
+      method: "POST"
+    }).then(function (response) {   
+	alert("Successfully send message!!!");
+	location.replace("../index.html");	
+}, function error(response) {
+      $scope.error = 'Invalid credentials!!!';
+    });
+  };
+});
+
+app.controller('ContactViewController', function($scope,$http){
+$http({
+
+method: 'GET',
+
+url: 'http://localhost:8080/contact'
+
+}).then(function success(response) {
+
+$scope.Contact = response.data;
+}, function error(response) {
+
+});
+$scope.editContact = function(contact) {
+
+    $http({
+      url: 'http://localhost:8080/contact/' + contact.name,
+      method: 'GET',
+
+    }).then(function successCallback(response) {
+var index = $scope.Contact.indexOf(contact);
+sessionStorage.setItem("Contact" ,JSON.stringify(response.data));
+location.replace("../read-message.html");
+    }, function errorCallback(response) {
+
+    });
+  };
+});
